@@ -1,6 +1,6 @@
-# Day-1 of 100.
+# Day-1 of 100
 ## Band Name Generator
-The program generates a band name for use based on your City and your Pet's Name
+The program generates a band name for users based on their City and Pet's Name.
 
 ![screenshot](day1.png)
 

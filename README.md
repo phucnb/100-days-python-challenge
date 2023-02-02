@@ -6,4 +6,5 @@ This is the main repo where I keep all the sources, projects for this course.
 
 ## Projects
 1. [Day 1: Band Name Generator](Day-1)
+2. [Day 2: Tip Calculator](Day-2)
 
