@@ -4,7 +4,7 @@ import sys
 
 
 for day in range(1, 101):
-    path = f"Day {day}"
+    path = f"Day-{day}"
     if not os.path.exists(path):
         os.mkdir(path)
         with open(f"{path}/README.md", 'w') as fp:
