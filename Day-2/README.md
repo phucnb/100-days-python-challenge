@@ -1,5 +1,5 @@
 # Day-2 of 100.
-## The Tip Calculator
+## Tip Calculator
 
 The program helps you split tips with your friends.
 
