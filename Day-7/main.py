@@ -64,7 +64,32 @@ def text_art_animations():
             time.sleep(.05)
             
         i += 1
-        
+
+def indexes_of_letter_in_word(letter, word):
+    '''
+    The function take 2 arguments letter and word
+    and return a list index(es) of letter in word
+    and return empty list if there is no letter in word
+    '''
+    indexes = []
+    for index in range(len(word)):
+        if letter.lower() == word[index].lower():
+            indexes.append(index)
+    
+    return indexes
+
+def replace_letter_in_word_at_indexes(word, letter, index):
+    '''
+    The function will find and replace the character(s) at 
+    index(es) in word with letter
+    and return the new word
+    '''
+    for i in index:
+        word = word[:i] + letter + word[i + 1:]
+     
+    return word
+
+    
 def main():
     
     # Initial variable
@@ -112,15 +137,7 @@ def main():
         # if the word has the letter
         elif guess_letter in word:
             
-            # find index of the letter
-            index = word.find(guess_letter)
-            # loop in case there are multiple letters in the word
-            while index != -1:
-                count += 1
-                # Update guess_word with the letter
-                guess_word = guess_word[:index] + guess_letter + guess_word[index + 1:]
-                # then find index of the next letter
-                index = word.find(guess_letter, index + 1)
+            guess_word = replace_letter_in_word_at_indexes(guess_word, guess_letter, indexes_of_letter_in_word(guess_letter, word))
         
         # if the letter doesn't appear in the word
         else:
@@ -138,6 +155,7 @@ def main():
     clear_screen()
     # print LOSE if wrong 6 times
     if lives == 0:
+        print("The word is : ", word)
         tprint('LOSE',font="random-xlarge",chr_ignore=True)
         
 if __name__ == "__main__":
