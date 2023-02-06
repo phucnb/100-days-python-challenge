@@ -17,4 +17,5 @@ User also can decrypt the `cipher` by given a correct `key`.
 
 ![ascii](ascii.png)
 
-## Instruction
+## Demo
+![Screenshot](demo.png)
