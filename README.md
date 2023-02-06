@@ -14,4 +14,5 @@ This is the main repo where I keep all the sources, projects for this course.
 7. [Day 7: The Hangman](Day-7)
 8. [Day 8: Advanced Vigenère Cipher](Day-8)
 9. [Day 9: The Secret Auction](Day-9)
+10. [Day 10: Calculator](Day-10)
 
