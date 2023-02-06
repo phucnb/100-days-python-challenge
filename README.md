@@ -12,4 +12,5 @@ This is the main repo where I keep all the sources, projects for this course.
 5. [Day 5: Password Generator](Day-5)
 6. [Day 6: Escaping the Maze](Day-6)
 7. [Day 7: The Hangman](Day-7)
+8. [Day 8: Advanced Vigenère Cipher](Day-8)
 
