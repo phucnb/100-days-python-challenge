@@ -33,33 +33,72 @@ def main():
         # draw cards for players
         drawn_cards = []
         for player in range(len(players)):
-            cards = [draw_card_from(deck), draw_card_from(deck)]
-            drawn_cards.append(cards)
+            # Draw 2 cards for each player
+            drawn_cards.append([draw_card_from(deck), draw_card_from(deck)])
+        dealer_cards = []
+        dealer_cards.append([draw_card_from(deck)])
         
-        drawn_cards[0].append(draw_card_from(deck))
-        drawn_cards[1].append(draw_card_from(deck))
-        drawn_cards[2].append(draw_card_from(deck))
-        print(drawn_cards)
-        print_drawn_cards(drawn_cards)
+        # print players' cards 
+        for player_index, card in enumerate(drawn_cards):
+            print(f"Player {player_index + 1}: ", end='')
+            print(print_drawn_cards(drawn_cards, player_index))
+        
+        # Print Dealer's cards
+        print("Dealer Card:", print_drawn_cards(dealer_cards, 0))
+
+        # Ask player to hit or stand
+        for player in range(len(players)):
+            while True:
+                options = input(f"hey {players[player]['name']}, your cards is {print_drawn_cards(drawn_cards, player)}."\
+                    "Do you want to hit (h) or stand (s): ").strip().lower()
+                if options in ['h', 's']:
+                    if options == 'h':
+                        hit(deck, drawn_cards, player)
+                    else:
+                        print()
+                        break
+            
+            
+            
+            
+
         
         
+        
+            
     
         # continue to play or exit?
-        play_again = input("Do you want to continue to play? (y/n): ").strip()
-        if play_again == 'n':
-            break
-        clear_screen()
+        # play_again = input("Do you want to continue to play? (y/n): ").strip()
+        # if play_again == 'n':
+        #     break
+        # clear_screen()
         
     print_players(players)
     
-def print_drawn_cards(drawn_cards):
-    for player in range(len(drawn_cards)):
-        print(f"Player {player + 1}: ", end='')
-        for card in drawn_cards[player]:
-            # print(type(card))
-            # print(card)
-            print(f'{card[0][0]}{card[0][1]} ', end='')
-        print()
+def print_drawn_cards(drawn_cards, player):
+    '''This function print the drawn cards for a specific player
+    
+    Parameters:
+    ----------
+        - drawn_cards (list): The list of all drawn cards of all players
+        - player (int): The index of the player in the list
+    
+    Returns:
+    -------
+        - str: The drawn cards of that player
+    
+    Examples:
+    --------
+    >>> print_drawn_cards(drawn_cards, 2)
+    5♦ 4♦
+    '''
+    
+    cards = ''
+    for card in drawn_cards[player]:
+        
+        cards += f'{card[0]}{card[1]} '
+        
+    return cards
         
 def initial_players(number_of_players, players):
     '''
@@ -72,16 +111,25 @@ def initial_players(number_of_players, players):
     return players
     
 def draw_card_from(deck):
-    '''
-    The function draw 1 random card and return the card with type of LIST.
-    The function also remove the drawn card from the deck.
-    Parameters: The function takes 1 parameter
-    - deck: LIST of all cards
-    Return: The function returns the drawn card in LIST
+    '''Draw a random card from deck
+    
+    Parameters
+    ----------
+        deck (list): list of all cards in deck
+    
+    Return
+    ------
+        tuple: a tuple of 1 card
+        
+    Example
+    -------
+    >>> draw_card_from(deck)
+    (7, '♠')
     ''' 
+    
     drawn_card = random.sample(deck, 1)
     deck.remove(drawn_card[0])
-    return drawn_card
+    return drawn_card[0]
     
 def update_chips_for(players, player, chips):
     '''
@@ -130,6 +178,25 @@ def shuffle_deck():
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
     
+def hit(deck: list, drawn_cards: list, player: int):
+    '''This function draws 1 more card for a player, add to drawn_cards list and return the list
     
+    Parameters:
+    ----------
+        - deck (list): The list of all cards
+        - drawn_cards (list): The list of all current drawn cards of all players
+        - player (int): The index of the player in the list
+    
+    Returns:
+    -------
+        - list: The new drawn_cards list of all players
+    '''
+    
+    new_card = draw_card_from(deck)
+    
+    drawn_cards[player].append(new_card)
+    
+    return drawn_cards
+        
 if __name__ == "__main__":
     main()    

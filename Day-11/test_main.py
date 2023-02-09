@@ -1,4 +1,4 @@
-from main import shuffle_deck, initial_players, update_chips_for, place_bet_for_player, draw_card_from
+from main import shuffle_deck, initial_players, update_chips_for, place_bet_for_player, draw_card_from, print_drawn_cards, hit
 import random
 
 def test_shuffle_deck():
@@ -47,10 +47,25 @@ def test_place_bet_for_player():
         assert len(bets) == player + 1
         assert players[player]['chips'] == 100 - bets[player][1]
         
-
 def test_draw_card_from():
     deck = shuffle_deck()
     
-    assert len(draw_card_from(deck)) == 1
-    assert len(deck) == 51
+    assert isinstance(draw_card_from(deck), tuple)
+    assert len(draw_card_from(deck)) == 2
+    assert len(deck) == 50
+
+def test_print_drawn_cards():
+    deck = shuffle_deck()
+    drawn_card = []
+    drawn_card.append([draw_card_from(deck)])
+    assert print_drawn_cards(drawn_card, 0) == f'{drawn_card[0][0][0]}{drawn_card[0][0][1]} '
     
+def test_hit():
+    deck = shuffle_deck()
+    drawn_card = []
+    drawn_card.append([draw_card_from(deck)])
+    assert len(drawn_card[0]) == 1
+    drawn_card = hit(deck, drawn_card,0)
+    assert len(drawn_card[0]) == 2
+    drawn_card = hit(deck, drawn_card,0)
+    assert len(drawn_card[0]) == 3
