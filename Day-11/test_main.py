@@ -1,6 +1,5 @@
 from main import shuffle_deck, initial_players, update_chips_for, place_bet_for_player, draw_card_from, print_drawn_cards, hit, is_blackjack
 import random
-
 def test_shuffle_deck():
         deck = shuffle_deck()
         assert len(deck) == 52 # Test total cards in deck. Should be 52 cards
@@ -12,12 +11,10 @@ def test_shuffle_deck():
             assert card[1] in ['♥', '♦', '♠', '♣']
         
 def test_initial_players():
-    players = []
+    
     # Test invalid number of players
-    assert len(initial_players(8, [])) == 0
     assert len(initial_players(0, [])) == 0
     assert len(initial_players(-1, [])) == 0
-    assert len(initial_players(9, [])) == 0
     
     # Test valid number of players
     assert len(initial_players(1, [])) == 1
@@ -58,7 +55,7 @@ def test_print_drawn_cards():
     deck = shuffle_deck()
     drawn_card = []
     drawn_card.append([draw_card_from(deck)])
-    assert print_drawn_cards(drawn_card, 0) == f'{drawn_card[0][0][0]}{drawn_card[0][0][1]} '
+    assert print_drawn_cards(drawn_card, 0) == f' \x1b[95m{drawn_card[0][0][0]}{drawn_card[0][0][1]}\x1b[0m'
     
 def test_hit():
     deck = shuffle_deck()

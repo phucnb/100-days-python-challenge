@@ -3,6 +3,9 @@ from art import *
 import os # to clear screen
 
 DEFAULT_CHIPS = 100
+MAX_NUMBER_OF_PLAYERS = 7
+MIN_NUMBER_OF_PLAYERS = 2
+BLACK_JACK = 0 # 0 to indicate a hand is Black Jack
 
 def main():
     clear_screen()
@@ -10,12 +13,19 @@ def main():
     deck = shuffle_deck()
     
     # Initial number of player
-    players = []
+    players = [] 
     while True:
-        if players := initial_players(int(input("How many players?: ")), players):
-            break
-        else: 
-            print("Number of player should be from 1 to 7")
+        number_of_players = input("Enter number of players (from 2-7): ")
+        try:
+            '''
+            Make sure user enter a valid int number
+            '''
+            number_of_players = int(number_of_players)
+            if MIN_NUMBER_OF_PLAYERS <= number_of_players <= MAX_NUMBER_OF_PLAYERS:
+                players = initial_players(number_of_players, players)
+                break
+        except:
+            pass
     print_players(players)
     
     while True:
@@ -55,12 +65,11 @@ def main():
             if is_blackjack(drawn_cards, player):
                 print(f"Bingooo {players[player]['name']}, you have a Black Jack.")
                 input("Press any key to continue...")
-                points[player] = 0
+                points[player] = BLACK_JACK
             else:
                 while True:
                     clear_screen()
                     points[player] = calculate_score(drawn_cards[player])
-                    print(points[player])
                     print(f"Hey {players[player]['name']}")
                     print(f"Your cards are\033[95m{print_drawn_cards(drawn_cards, player)}\033[0m.")
                     print(f"Dealer's cards is\033[92m{print_drawn_cards(dealer_cards, 0)}\033[0m.")
@@ -95,7 +104,7 @@ def main():
                 print(f"Dealer Cards:\033[92m{print_drawn_cards(dealer_cards, 0)}\033[0m")
                 points['dealer'] = calculate_score(dealer_cards[0])
         else:
-            points['dealer'] = 0
+            points['dealer'] = BLACK_JACK
                 
         
         # Compare hands
@@ -132,120 +141,55 @@ def main():
         
     
 
-def player_result(dealer, player):
-    if player == 0 and dealer != 0:
-        return 'blackjack'
-    elif player > 21 or (player < dealer and dealer < 22) or (player != 0 and dealer == 0):
-        return 'lose'
-    elif player == dealer:
-        return 'push'
-    else:
-        return 'win'
-    
-    
-def print_drawn_cards(drawn_cards, player):
-    '''This function print the drawn cards for a specific player
-    
-    Parameters:
-    ----------
-        - drawn_cards (list): The list of all drawn cards of all players
-        - player (int): The index of the player in the list
-    
-    Returns:
-    -------
-        - str: The drawn cards of that player
-    
-    Examples:
-    --------
-    >>> print_drawn_cards(drawn_cards, 2)
-    5♦ 4♦
-    '''
-    
-    cards = ''
-    for card in drawn_cards[player]:
-        
-        cards += f' \033[95m{card[0]}{card[1]}\033[0m'
-        
-    return cards
 
-def points(points, player, point):
-    '''The function update players' points as well as dealer and return the new points dict
-    
-    Parameters:
-    ----------
-        - points (dict): The points dict of all players
-        - player (int): The index of the player in the list
-        - point (str or int): point or 
-    
-    Returns:
-    -------
-        - dict: The points dict of all players
+def clear_screen():
     '''
-    points[player] = point
-    return points
+    The function clears the terminal
+    '''
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-def print_all_players_cards(drawn_cards):
-    for player_index, card in enumerate(drawn_cards):
-        print(f"Player {player_index + 1}: ", end='')
-        print(print_drawn_cards(drawn_cards, player_index))
-        
-def initial_players(number_of_players, players):
+def shuffle_deck() -> list[tuple]:
     '''
-    The function initial list of players with name and 100 chips
-    if 0 < number_of_players < 8 then return lists of players, else return empty list
-    '''
-    if 0 < number_of_players < 8:  
-        for player in range(number_of_players):
-            players.append({'name' : f'Player {player + 1}', 'chips' : DEFAULT_CHIPS})
-    return players
+    The function resets the number of card in deck to 52 cards
     
-def draw_card_from(deck):
-    '''Draw a random card from deck
+    Return:
+    ------
+    (list): a List of 52 cards, each card is a tuple
+    
+    Example:
+    -------
+    >>> deck = shuffle_deck()
+    deck[0] = [('A', '♥')]
+    '''
+    deck = [(rank, suit) for rank in ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+            for suit in ['♥', '♦', '♠', '♣']]  
+    return deck
+
+def initial_players(number_of_players, players) -> list[dict]:
+    '''
+    The function initial list of players with name and default chips and returns players list
     
     Parameters
     ----------
-        deck (list): list of all cards in deck
-    
+    - number_of_players (str) : number of players
+
     Return
     ------
-        tuple: a tuple of 1 card
-        
+    - (list) : list of dicts for all players
+    
     Example
     -------
-    >>> draw_card_from(deck)
-    (7, '♠')
-    ''' 
-    
-    drawn_card = random.sample(deck, 1)
-    deck.remove(drawn_card[0])
-    return drawn_card[0]
-    
-def update_chips_for(players, player, chips):
+    >>> players = []
+    >>> initial_players(2, players)
+    >>> print(players)
+    [{'name': 'Player 1', 'chips' : 100}, {'name': 'Player 2', 'chips' : 100}]
     '''
-    The function update chip for a specific player in players list
-    player and chips should be and int
-    Parameters: The function takes 3 parameters
-    - players: LIST of all players
-    - player: INT index of the player in players list
-    - chips: INT amount of chip want to update
-    '''
-    players[player]['chips'] += chips  
 
-def place_bet_for_player(players, player, bets, bet):
-   '''
-   The function updates chips for a specific player in players list
-   And update bets list
-   Parameters: the function takes 4 parameters
-   - players: LIST of players
-   - player: INT index of the player in players list
-   - bets: LIST of bets of all players
-   - bet: INT amount of chip which player want to bet
-   Return: The function return a updated bets LIST
-   '''
-   update_chips_for(players, player, -bet)
-   bets.append([player, bet])
-   return bets
-
+    for player in range(number_of_players):
+        players.append({'name' : f'Player {player + 1}', 'chips' : DEFAULT_CHIPS})
+    
+    return players
+    
 def print_players(players):
     '''
     The function print all players with their name and chips
@@ -253,19 +197,7 @@ def print_players(players):
     - players: LIST of all players
     '''
     for player in players:
-        print(f"{player['name']} has {player['chips']} chip(s).")
-
-def shuffle_deck():
-    '''
-    The function reset the number of card in deck to 52 cards
-    and return deck is the list of 52 unique cards
-    '''
-    deck = [(rank, suit) for rank in ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
-            for suit in ['♥', '♦', '♠', '♣']]  
-    return deck
-
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"{player['name']} has {player['chips']} chip(s).")    
     
 def hit(deck: list, drawn_cards: list, player: int):
     '''This function draws 1 more card for a player, add to drawn_cards list and return the list
@@ -333,8 +265,109 @@ def calculate_score(cards: list):
     if ace and total > 21:
         total -= 10
     return total
-            
+    
+def player_result(dealer, player):
+    if player == BLACK_JACK and dealer != BLACK_JACK:
+        return 'blackjack'
+    elif player > 21 or (player < dealer and dealer < 22) or (player != BLACK_JACK and dealer == BLACK_JACK):
+        return 'lose'
+    elif player == dealer:
+        return 'push'
+    else:
+        return 'win'
         
+def print_drawn_cards(drawn_cards, player):
+    '''This function print the drawn cards for a specific player
+    
+    Parameters:
+    ----------
+        - drawn_cards (list): The list of all drawn cards of all players
+        - player (int): The index of the player in the list
+    
+    Returns:
+    -------
+        - str: The drawn cards of that player
+    
+    Examples:
+    --------
+    >>> print_drawn_cards(drawn_cards, 2)
+    5♦ 4♦
+    '''
+    
+    cards = ''
+    for card in drawn_cards[player]:
+        
+        cards += f' \033[95m{card[0]}{card[1]}\033[0m'
+        
+    return cards
+
+def points(points, player, point):
+    '''The function update players' points as well as dealer and return the new points dict
+    
+    Parameters:
+    ----------
+        - points (dict): The points dict of all players
+        - player (int): The index of the player in the list
+        - point (str or int): point or 
+    
+    Returns:
+    -------
+        - dict: The points dict of all players
+    '''
+    points[player] = point
+    return points
+
+def print_all_players_cards(drawn_cards):
+    for player_index, card in enumerate(drawn_cards):
+        print(f"Player {player_index + 1}: ", end='')
+        print(print_drawn_cards(drawn_cards, player_index))
+    
+def draw_card_from(deck):
+    '''Draw a random card from deck
+    
+    Parameters
+    ----------
+        deck (list): list of all cards in deck
+    
+    Return
+    ------
+        tuple: a tuple of 1 card
+        
+    Example
+    -------
+    >>> draw_card_from(deck)
+    (7, '♠')
+    ''' 
+    
+    drawn_card = random.sample(deck, 1)
+    deck.remove(drawn_card[0])
+    return drawn_card[0]
+    
+def update_chips_for(players, player, chips):
+    '''
+    The function update chip for a specific player in players list
+    player and chips should be and int
+    Parameters: The function takes 3 parameters
+    - players: LIST of all players
+    - player: INT index of the player in players list
+    - chips: INT amount of chip want to update
+    '''
+    players[player]['chips'] += chips  
+
+def place_bet_for_player(players, player, bets, bet):
+   '''
+   The function updates chips for a specific player in players list
+   And update bets list
+   Parameters: the function takes 4 parameters
+   - players: LIST of players
+   - player: INT index of the player in players list
+   - bets: LIST of bets of all players
+   - bet: INT amount of chip which player want to bet
+   Return: The function return a updated bets LIST
+   '''
+   update_chips_for(players, player, -bet)
+   bets.append([player, bet])
+   return bets
     
 if __name__ == "__main__":
     main()    
