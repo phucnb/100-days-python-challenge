@@ -1,4 +1,4 @@
-from main import shuffle_deck, initial_players, update_chips_for, place_bet_for_player, draw_card_from, print_drawn_cards, hit
+from main import shuffle_deck, initial_players, update_chips_for, place_bet_for_player, draw_card_from, print_drawn_cards, hit, is_blackjack
 import random
 
 def test_shuffle_deck():
@@ -69,3 +69,13 @@ def test_hit():
     assert len(drawn_card[0]) == 2
     drawn_card = hit(deck, drawn_card,0)
     assert len(drawn_card[0]) == 3
+
+def test_is_blackjack():
+    drawn_card = [[('A', '♥'),('J', '♥')],[('A', '♥'),('J', '♥'),('J', '♥')],[('J', '♥'),('J', '♥')],[('K', '♥'),('A', '♥')],]
+    assert is_blackjack(drawn_card, 0) == True
+    assert is_blackjack(drawn_card, 1) == False
+    assert is_blackjack(drawn_card, 2) == False
+    assert is_blackjack(drawn_card, 3) == True
+
+    
+    
