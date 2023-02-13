@@ -12,6 +12,7 @@ height = 700
 jimmy = Turtle()
 jimmy.shape("arrow")
 jimmy.speed(0)
+jimmy.hideturtle()
 screen = Screen()
 screen.setup(.99, .99, 0, 0)
 screen.screensize(canvwidth=width, canvheight=height)
