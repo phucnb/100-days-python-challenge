@@ -1,0 +1,492 @@
+{
+    "Air" : {
+        "en": "Air",
+        "vi": "Không khí",
+        "correct_count" : 0
+        },
+    "Area" : {
+        "en": "Area",
+        "vi": "Khu vực",
+        "correct_count" : 0
+        },
+    "Art" : {
+        "en": "Art",
+        "vi": "Nghệ thuật",
+        "correct_count" : 0
+        },
+    "Bill" : {
+        "en": "Bill",
+        "vi": "Hóa đơn",
+        "correct_count" : 0
+        },
+    "Body" : {
+        "en": "Body",
+        "vi": "Cơ thể",
+        "correct_count" : 0
+        },
+    "Book" : {
+        "en": "Book",
+        "vi": "Cuốn sách",
+        "correct_count" : 0
+        },
+    "Business" : {
+        "en": "Business",
+        "vi": "Kinh doanh",
+        "correct_count" : 0
+        },
+    "Car" : {
+        "en": "Car",
+        "vi": "Xe ô tô",
+        "correct_count" : 0
+        },
+    "Change" : {
+        "en": "Change",
+        "vi": "Sự thay đổi",
+        "correct_count" : 0
+        },
+    "Child" : {
+        "en": "Child",
+        "vi": "Đứa trẻ, con cái",
+        "correct_count" : 0
+        },
+    "City" : {
+        "en": "City",
+        "vi": "Thành phố",
+        "correct_count" : 0
+        },
+    "Community" : {
+        "en": "Community",
+        "vi": "Cộng đồng",
+        "correct_count" : 0
+        },
+    "Company" : {
+        "en": "Company",
+        "vi": "Công ty",
+        "correct_count" : 0
+        },
+    "Cook" : {
+        "en": "Cook",
+        "vi": "Đầu bếp",
+        "correct_count" : 0
+        },
+    "Country" : {
+        "en": "Country",
+        "vi": "Đất nước",
+        "correct_count" : 0
+        },
+    "Day" : {
+        "en": "Day",
+        "vi": "Ngày",
+        "correct_count" : 0
+        },
+    "Door" : {
+        "en": "Door",
+        "vi": "Cửa",
+        "correct_count" : 0
+        },
+    "Education" : {
+        "en": "Education",
+        "vi": "Giáo dục",
+        "correct_count" : 0
+        },
+    "Engineer" : {
+        "en": "Engineer",
+        "vi": "Kỹ sư",
+        "correct_count" : 0
+        },
+    "Eye" : {
+        "en": "Eye",
+        "vi": "Con mắt",
+        "correct_count" : 0
+        },
+    "Face" : {
+        "en": "Face",
+        "vi": "Gương mặt",
+        "correct_count" : 0
+        },
+    "Family" : {
+        "en": "Family",
+        "vi": "Gia đình",
+        "correct_count" : 0
+        },
+    "Father" : {
+        "en": "Father",
+        "vi": "Cha",
+        "correct_count" : 0
+        },
+    "Film" : {
+        "en": "Film",
+        "vi": "Bộ phim (phim)",
+        "correct_count" : 0
+        },
+    "Form" : {
+        "en": "Form",
+        "vi": "Mẫu đơn",
+        "correct_count" : 0
+        },
+    "Friend" : {
+        "en": "Friend",
+        "vi": "Người bạn",
+        "correct_count" : 0
+        },
+    "Game" : {
+        "en": "Game",
+        "vi": "Trò chơi",
+        "correct_count" : 0
+        },
+    "Garden" : {
+        "en": "Garden",
+        "vi": "Vườn",
+        "correct_count" : 0
+        },
+    "Girl" : {
+        "en": "Girl",
+        "vi": "Con gái",
+        "correct_count" : 0
+        },
+    "Government" : {
+        "en": "Government",
+        "vi": "Chính phủ",
+        "correct_count" : 0
+        },
+    "Group" : {
+        "en": "Group",
+        "vi": "Nhóm, tập đoàn",
+        "correct_count" : 0
+        },
+    "Hand" : {
+        "en": "Hand",
+        "vi": "Bàn tay",
+        "correct_count" : 0
+        },
+    "Head" : {
+        "en": "Head",
+        "vi": "Đầu",
+        "correct_count" : 0
+        },
+    "Health" : {
+        "en": "Health",
+        "vi": "Sức khỏe",
+        "correct_count" : 0
+        },
+    "History" : {
+        "en": "History",
+        "vi": "Lịch sử",
+        "correct_count" : 0
+        },
+    "Home" : {
+        "en": "Home",
+        "vi": "Nhà (mái ấm)",
+        "correct_count" : 0
+        },
+    "Hour" : {
+        "en": "Hour",
+        "vi": "Giờ (tiếng)",
+        "correct_count" : 0
+        },
+    "House" : {
+        "en": "House",
+        "vi": "Ngôi nhà",
+        "correct_count" : 0
+        },
+    "Idea" : {
+        "en": "Idea",
+        "vi": "Ý tưởng, gợi ý",
+        "correct_count" : 0
+        },
+    "Information" : {
+        "en": "Information",
+        "vi": "Thông tin",
+        "correct_count" : 0
+        },
+    "Issue" : {
+        "en": "Issue",
+        "vi": "Vấn đề",
+        "correct_count" : 0
+        },
+    "Job" : {
+        "en": "Job",
+        "vi": "Việc làm, công việc",
+        "correct_count" : 0
+        },
+    "Kid" : {
+        "en": "Kid",
+        "vi": "Đứa trẻ",
+        "correct_count" : 0
+        },
+    "Kind" : {
+        "en": "Kind",
+        "vi": "Loại",
+        "correct_count" : 0
+        },
+    "Law" : {
+        "en": "Law",
+        "vi": "Pháp luật, ngành luật",
+        "correct_count" : 0
+        },
+    "Level" : {
+        "en": "Level",
+        "vi": "Mức độ, trình độ",
+        "correct_count" : 0
+        },
+    "Life" : {
+        "en": "Life",
+        "vi": "Cuộc sống, cuộc đời",
+        "correct_count" : 0
+        },
+    "Man " : {
+        "en": "Man ",
+        "vi": "Đàn ông",
+        "correct_count" : 0
+        },
+    "Manager" : {
+        "en": "Manager",
+        "vi": "Người quản lý, trưởng phòng",
+        "correct_count" : 0
+        },
+    "Member" : {
+        "en": "Member",
+        "vi": "Thành viên",
+        "correct_count" : 0
+        },
+    "Minute" : {
+        "en": "Minute",
+        "vi": "Phút",
+        "correct_count" : 0
+        },
+    "Moment" : {
+        "en": "Moment",
+        "vi": "Khoảnh khắc",
+        "correct_count" : 0
+        },
+    "Money" : {
+        "en": "Money",
+        "vi": "Tiền",
+        "correct_count" : 0
+        },
+    "Month" : {
+        "en": "Month",
+        "vi": "Tháng",
+        "correct_count" : 0
+        },
+    "Morning" : {
+        "en": "Morning",
+        "vi": "Buổi sáng",
+        "correct_count" : 0
+        },
+    "Mother" : {
+        "en": "Mother",
+        "vi": "Mẹ",
+        "correct_count" : 0
+        },
+    "Musician" : {
+        "en": "Musician",
+        "vi": "Nhạc sĩ",
+        "correct_count" : 0
+        },
+    "Name" : {
+        "en": "Name",
+        "vi": "Tên",
+        "correct_count" : 0
+        },
+    "Night" : {
+        "en": "Night",
+        "vi": "Đêm",
+        "correct_count" : 0
+        },
+    "Number" : {
+        "en": "Number",
+        "vi": "Con số, số điện thoại",
+        "correct_count" : 0
+        },
+    "Office" : {
+        "en": "Office",
+        "vi": "Văn phòng",
+        "correct_count" : 0
+        },
+    "Opportunity" : {
+        "en": "Opportunity",
+        "vi": "Cơ hội",
+        "correct_count" : 0
+        },
+    "Parent" : {
+        "en": "Parent",
+        "vi": "Ba mẹ, bậc làm cha mẹ",
+        "correct_count" : 0
+        },
+    "Part" : {
+        "en": "Part",
+        "vi": "Phần, bộ phận",
+        "correct_count" : 0
+        },
+    "Party" : {
+        "en": "Party",
+        "vi": "Bữa tiệc",
+        "correct_count" : 0
+        },
+    "People" : {
+        "en": "People",
+        "vi": "Con người",
+        "correct_count" : 0
+        },
+    "Person" : {
+        "en": "Person",
+        "vi": "Con người (số ít)",
+        "correct_count" : 0
+        },
+    "Pilot" : {
+        "en": "Pilot",
+        "vi": "Phi công",
+        "correct_count" : 0
+        },
+    "Place" : {
+        "en": "Place",
+        "vi": "Vị trí, địa điểm",
+        "correct_count" : 0
+        },
+    "President" : {
+        "en": "President",
+        "vi": "Chủ tịch",
+        "correct_count" : 0
+        },
+    "Price" : {
+        "en": "Price",
+        "vi": "Giá tiền",
+        "correct_count" : 0
+        },
+    "Problem" : {
+        "en": "Problem",
+        "vi": "Vấn đề",
+        "correct_count" : 0
+        },
+    "Program" : {
+        "en": "Program",
+        "vi": "Chương trình",
+        "correct_count" : 0
+        },
+    "Question" : {
+        "en": "Question",
+        "vi": "Câu hỏi",
+        "correct_count" : 0
+        },
+    "Reason" : {
+        "en": "Reason",
+        "vi": "Nguyên nhân",
+        "correct_count" : 0
+        },
+    "Result" : {
+        "en": "Result",
+        "vi": "Kết quả",
+        "correct_count" : 0
+        },
+    "Right" : {
+        "en": "Right",
+        "vi": "Quyền lợi",
+        "correct_count" : 0
+        },
+    "Room" : {
+        "en": "Room",
+        "vi": "Căn phòng",
+        "correct_count" : 0
+        },
+    "Service" : {
+        "en": "Service",
+        "vi": "Dịch vụ",
+        "correct_count" : 0
+        },
+    "State" : {
+        "en": "State",
+        "vi": "Trạng thái",
+        "correct_count" : 0
+        },
+    "Story" : {
+        "en": "Story",
+        "vi": "Câu chuyện",
+        "correct_count" : 0
+        },
+    "Student" : {
+        "en": "Student",
+        "vi": "Học sinh, sinh viên",
+        "correct_count" : 0
+        },
+    "Study" : {
+        "en": "Study",
+        "vi": "Sự học tập, việc học",
+        "correct_count" : 0
+        },
+    "Surname" : {
+        "en": "Surname",
+        "vi": "Tên họ",
+        "correct_count" : 0
+        },
+    "System" : {
+        "en": "System",
+        "vi": "Hệ thống",
+        "correct_count" : 0
+        },
+    "Teacher" : {
+        "en": "Teacher",
+        "vi": "Giáo viên",
+        "correct_count" : 0
+        },
+    "Team" : {
+        "en": "Team",
+        "vi": "Đội",
+        "correct_count" : 0
+        },
+    "Thing" : {
+        "en": "Thing",
+        "vi": "Sự vật",
+        "correct_count" : 0
+        },
+    "Time" : {
+        "en": "Time",
+        "vi": "Thời gian",
+        "correct_count" : 0
+        },
+    "War" : {
+        "en": "War",
+        "vi": "Chiến tranh",
+        "correct_count" : 0
+        },
+    "Water" : {
+        "en": "Water",
+        "vi": "Nước",
+        "correct_count" : 0
+        },
+    "Way" : {
+        "en": "Way",
+        "vi": "Con đường, cách thức",
+        "correct_count" : 0
+        },
+    "Week" : {
+        "en": "Week",
+        "vi": "Tuần ",
+        "correct_count" : 0
+        },
+    "Woman" : {
+        "en": "Woman",
+        "vi": "Phụ nữ",
+        "correct_count" : 0
+        },
+    "Word" : {
+        "en": "Word",
+        "vi": "Từ",
+        "correct_count" : 0
+        },
+    "Work" : {
+        "en": "Work",
+        "vi": "Công việc",
+        "correct_count" : 0
+        },
+    "World" : {
+        "en": "World",
+        "vi": "Thế giới",
+        "correct_count" : 0
+        },
+    "Year" : {
+        "en": "Year",
+        "vi": "Năm",
+        "correct_count" : 0
+        }
+}
