@@ -46,7 +46,7 @@ def practice():
     # word = {data_list : data[data_list]}
     first_lang_text['text'] = random_word[0]
     
-    
+
 
 
 add_bt = Button(text="ADD", bg=ACCENT_COLOR, fg=SECOND_COLOR ,borderless=1, width= 195, height=BTT_HEIGHT, font=BUTTON_FONT)
