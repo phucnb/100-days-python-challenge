@@ -43,7 +43,7 @@ class QuizInterface:
             self.true_btn.config(state='disabled')
             self.false_btn.config(state='disabled')
 
-            
+
 
     def true_pressed(self):
         correct = self.quiz.check_answer(user_answer='true')
