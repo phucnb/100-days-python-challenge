@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block title %}{{post.title}}{% endblock %}
+{% block site_heading %}{{post.title}}{% endblock %}
+{% block sub_heading %}{{post.subtitle}}{% endblock %}
+
+{%block content%}
+{{post.body}}
+{% endblock %}

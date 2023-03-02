@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block site_heading %}Phuc Nguyen{% endblock %}
+{% block sub_heading %}my collection{% endblock %}
+
+{%block content%}
+{% for post in posts %}
+<div class="post-preview">
+    <a href="{{url_for('post', id=post.id)}}">
+        <h2 class="post-title">{{post.title}}</h2>
+        <h3 class="post-subtitle">{{post.subtitle}}</h3>
+    </a>
+    <p class="post-meta">
+        Posted by
+        <a href="#!">PhucNB</a>
+        on March 02, 2023
+    </p>
+</div>
+ <!-- Divider-->
+ <hr class="my-4" />
+ {% endfor %}
+{% endblock %}
+
+
