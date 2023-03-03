@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %} - Library App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+      <a class="navbar-brand" href="#">Library App</a>
+      <ul class="navbar-nav mr-auto">
+        {% if current_user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('book.index') }}">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <div class="container">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="row">
+        <div class="col-md-12">
+          {% for message in messages %}
+          <div class="alert alert-{{ message[1] }} alert-dismissible fade show" role="alert">
+            {{ message[0] }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </body>
+</html>

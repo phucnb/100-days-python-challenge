@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="mb-3">My Library</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Rating</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.rating }}</td>
+          <td>
+            <a href="{{ url_for('book.edit_book', book_id=book.id) }}" class="btn btn-sm btn-primary">Edit</a>
+            <form method="post" action="{{ url_for('book.delete_book', book_id=book.id) }}" class="d-inline">
+              {{ csrf_token() }}
+              <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{{ url_for('book.add_book') }}" class="btn btn-primary">Add Book</a>
+{% endblock %}
